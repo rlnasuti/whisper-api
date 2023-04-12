@@ -2,10 +2,13 @@
 FROM python:3.10
 
 # Install Nginx
-RUN apt-get update && apt-get install -y nginx
+RUN apt-get update && apt-get install -y nginx ffmpeg
 
 # Set the working directory inside the container
 WORKDIR /app
+
+# Expose the port that Nginx will listen on
+EXPOSE 80 5002
 
 # Copy the requirements.txt file into the container
 COPY requirements.txt /app/
